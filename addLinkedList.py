@@ -1,7 +1,7 @@
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
-        self.next = nextclass Solution:
+        self.next = nextclass 
     def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
         num1 = ""
         num2 = ""
@@ -15,11 +15,16 @@ class ListNode:
         
         num3 = int(num1)+ int(num2)
         num3 = str(num3)
+        
+        dummy = ListNode(0)
+        current = dummy
+        
         l3=[]
-        for i in range(len(num3) -1, -1, -1):
-            l3.append(num3[i])
+        for i in reversed(num3):
+            current.next = ListNode(int(i))
+            current = current.next
             
-        return l3
+        return dummy.next
     
 print(addTwoNumbers())
 
